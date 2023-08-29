@@ -157,8 +157,18 @@ export default function parsePrometheusTextFormat(metrics) {
             }
         }
     }
+    // return converted;
+    return convertArrayToObject(converted);
+}
 
-    return converted;
+function convertArrayToObject(samples) {
+    const obj = {};
+    for (const lineSample of samples) {
+        const { name } = lineSample;
+        delete lineSample.name;
+        obj[name] = lineSample;
+    }
+    return obj;
 }
 
 function flattenMetrics(metrics, groupName, keyName, valueName) {
@@ -170,16 +180,16 @@ function flattenMetrics(metrics, groupName, keyName, valueName) {
                 flattened = {};
                 flattened[groupName] = {};
             }
-            flattened[groupName][sample.labels[keyName]] = sample[valueName];
+            flattened[groupName][sample.labels[keyName]] = +sample[valueName];
         } else if (!sample.labels) {
             if (!flattened) {
                 flattened = {};
             }
             if (sample.count !== undefined) {
-                flattened.count = sample.count;
+                flattened.count = +sample.count;
             }
             if (sample.sum !== undefined) {
-                flattened.sum = sample.sum;
+                flattened.sum = +sample.sum;
             }
         }
     }

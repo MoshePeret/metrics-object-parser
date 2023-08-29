@@ -135,13 +135,13 @@ export default function parseSampleLine(line) {
 
     const ret = {
         name,
-        value
+        value: Number(value),
     };
     if (labels) {
         ret.labels = labels;
     }
     if (timestamp) {
-        ret.timestamp_ms = timestamp;
+        ret.timestamp_ms = Number(timestamp);
     }
     return ret;
 }

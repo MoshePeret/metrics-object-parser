@@ -13,6 +13,7 @@ const expectedStr = fs.readFileSync(
 if (process.argv[2] === 'bench') {
     console.time('parse 50000 times');
     for (let i = 0; i < 50000; ++i) {
+        debugger
         parsePrometheusTextFormat(inputStr);
     }
     console.timeEnd('parse 50000 times');

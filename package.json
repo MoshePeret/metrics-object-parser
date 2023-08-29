@@ -1,23 +1,23 @@
 {
-  "name": "parse-prometheus-text-format",
-  "version": "1.1.0",
+  "name": "metrics-object-parser",
+  "version": "1.0.0",
   "description": "Parses Prometheus text format into JavaScript objects",
-  "main": "dist/parse-prometheus-text-format.cjs.js",
-  "module": "dist/parse-prometheus-text-format.esm.js",
-  "browser": "dist/parse-prometheus-text-format.umd.js",
+  "main": "dist/metrics-object-parser.cjs.js",
+  "module": "dist/metrics-object-parser.esm.js",
+  "browser": "dist/metrics-object-parser.umd.js",
   "scripts": {
     "test": "node -r esm test/run-test.js",
     "bench": "node -r esm test/run-test.js bench",
     "build": "rollup -c"
   },
-  "author": "Yunyu Lin",
+  "author": "Yunyu Lin & MoshPe",
   "license": "Apache-2.0",
   "dependencies": {
     "shallow-equal": "^1.2.0"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/yunyu/parse-prometheus-text-format.git"
+    "url": "https://github.com/MoshePeret/metrics-object-parser.git"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
